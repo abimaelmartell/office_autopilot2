@@ -2,35 +2,22 @@ The OfficeAutopilot Ruby Gem
 ============================
 A Ruby wrapper for the OfficeAutopilot API
 
-Maintenance Note
-----------------
-
-This library is no longer being maintained. Please fork :-)
 
 Installation
 ------------
-    gem install office_autopilot
+    gem install office_autopilot2
 
 Usage Examples
 --------------
-    require "rubygems"
-    require "office_autopilot"
+    require "office_autopilot2"
 
-    client = OfficeAutopilot::Client.new(:api_id => 'xxx', :api_key => 'yyy')
-
-    # Search Contacts
-    puts client.contacts_search(:field => 'E-Mail', :op => 'e', :value => 'prashant@example.com')
-       # results truncated for brevity but ALL fields (including custom fields) are returned
-       => [{"id"=>"7",
-             "Contact Information"=>{"First Name"=>"testing", "Last Name"=>"testing", "E-Mail"=>"prashant@example.com"},
-            "Lead Information"=>{"Contact Owner"=>"XXX", "First Referrer"=>"", "Last Referrer"=>""},
-            "Sequences and Tags"=>{"Sequences"=>"*/*", "Contact Tags"=>""},
-            "Purchase History"=>{}
-          }]
+    OfficeAutopilot2.configure do |config|
+        config.app_id = 'xxx'
+        config.api_key = 'xxx'
+    end
 
     # Add Contact
-    puts client.contacts_add({ 'Contact Information' => {'First Name' => 'Turtle', 'Last Name' => 'Jones', 'E-Mail' => 'mrturtles@example.com'} })
-       => {"id"=>"24", "Contact Information"=>{"First Name"=>"Turtle", "Last Name"=>"Jones", "E-Mail"=>"mrturtles@example.com"}}
+    contact = OfficeAutopilot2.client.contacts_add({ 'Contact Information' => {'First Name' => 'Turtle', 'Last Name' => 'Jones', 'E-Mail' => 'mrturtles@example.com'} })
 
 Documentation
 -------------
@@ -72,5 +59,5 @@ Submitting a Pull Request
 
 Copyright
 ---------
-Copyright (c) 2011 Prashant Nadarajan.
-See [LICENSE](https://github.com/prashantrajan/office_autopilot/blob/master/LICENSE) for details.
+Copyright (c) 2013 Abimael Martell.
+See [LICENSE](https://github.com/abimaelmartell/office_autopilot2/blob/master/LICENSE) for details.

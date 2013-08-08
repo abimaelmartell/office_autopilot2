@@ -4,8 +4,15 @@ describe OfficeAutopilot2::Client::Contacts do
 
   before do
     @contact_endpoint = "#{api_endpoint}/cdata.php"
-    @client = OfficeAutopilot2::Client.new(:api_id => 'xxx', :api_key => 'xxx')
-    @auth_str = "Appid=#{@client.api_id}&Key=#{@client.api_key}"
+
+    OfficeAutopilot2.configure do |config|
+      config.app_id = 'xxx'
+      config.api_key = 'xxx'
+    end
+
+    @client = OfficeAutopilot2.client
+
+    @auth_str = "Appid=#{OfficeAutopilot2.app_id}&Key=#{OfficeAutopilot2.api_key}"
   end
 
   def request_body(req_type, options = {})

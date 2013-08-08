@@ -15,9 +15,9 @@ Gem::Specification.new do |s|
   s.name        = "office_autopilot2"
   s.version     = OfficeAutopilot2::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Prashant Nadarajan"]
-  s.email       = ["prashant.nadarajan@gmail.com"]
-  s.homepage    = "https://github.com/prashantrajan/office_autopilot2"
+  s.authors     = ["Abimael Martell", "Prashant Nadarajan"]
+  s.email       = ["abimex@gmail.com", "prashant.nadarajan@gmail.com"]
+  s.homepage    = "https://github.com/abimaelmartell/office_autopilot2"
   s.summary     = %q{Ruby wrapper for the OfficeAutopilot API}
   s.description = %q{A (better) Ruby wrapper for the OfficeAutopilot API}
 

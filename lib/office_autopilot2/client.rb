@@ -1,35 +1,16 @@
 require 'builder'
 require 'nokogiri'
-
-require File.expand_path('../error', __FILE__)
-require File.expand_path('../request', __FILE__)
-require File.expand_path('../client/contacts', __FILE__)
-
 module OfficeAutopilot2
   class Client
+    include OfficeAutopilot2::Client::Contacts
 
-    include Contacts
-
-    def initialize(options)
-      @api = {
-        :api_id => options[:api_id],
-        :api_key => options[:api_key]
-      }
-
-      raise ArgumentError, "Missing required parameter: api_id" if @api[:api_id].nil?
-      raise ArgumentError, "Missing required parameter: api_key" if @api[:api_key].nil?
-    end
-
-    def api_id
-      @api[:api_id]
-    end
-
-    def api_key
-      @api[:api_key]
+    def initialize
+      raise ArgumentError, "Missing required parameter: app_id" if OfficeAutopilot2.app_id.nil?
+      raise ArgumentError, "Missing required parameter: api_key" if OfficeAutopilot2.api_key.nil?
     end
 
     def auth
-      { 'Appid' => api_id, 'Key' => api_key }
+      { 'Appid' => OfficeAutopilot2.app_id, 'Key' => OfficeAutopilot2.api_key }
     end
 
     def request(method, path, options)

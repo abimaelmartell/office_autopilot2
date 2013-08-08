@@ -3,15 +3,18 @@ require 'spec_helper'
 describe OfficeAutopilot2::Client do
 
   before do
-    @api_id = 'foo'
-    @api_key = 'bar'
-    @client = OfficeAutopilot2::Client.new(:api_id => @api_id, :api_key => @api_key)
+    OfficeAutopilot2.configure do |config|
+      config.app_id = @api_id
+      config.api_key = @api_key
+    end
+
+    @client = OfficeAutopilot2.client
   end
 
   describe "#new" do
     it "initializes with the given API credentials" do
-      @client.api_id.should == @api_id
-      @client.api_key.should == @api_key
+      OfficeAutopilot2.app_id.should == @api_id
+      OfficeAutopilot2.api_key.should == @api_key
       @client.auth.should == { 'Appid' => @api_id, 'Key' => @api_key }
     end
 

@@ -1,7 +1,6 @@
 module OfficeAutopilot2
   class Client
     module Contacts
-
       CONTACTS_ENDPOINT = '/cdata.php'
 
       def contacts_search(options)
