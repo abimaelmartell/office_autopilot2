@@ -17,7 +17,7 @@ Usage Examples
     end
 
     # Add Contact
-    contact = OfficeAutopilot2.client.contacts_add({ 'Contact Information' => {'First Name' => 'Turtle', 'Last Name' => 'Jones', 'E-Mail' => 'mrturtles@example.com'} })
+    contact = OfficeAutopilot2.contacts_add({ 'Contact Information' => {'First Name' => 'Turtle', 'Last Name' => 'Jones', 'E-Mail' => 'mrturtles@example.com'} })
 
 Documentation
 -------------
