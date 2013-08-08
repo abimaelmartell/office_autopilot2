@@ -1,1 +1,1 @@
-require 'office_autopilot/client'
+require 'office_autopilot2/client'

@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe OfficeAutopilot::Client do
+describe OfficeAutopilot2::Client do
 
   before do
     @api_id = 'foo'
     @api_key = 'bar'
-    @client = OfficeAutopilot::Client.new(:api_id => @api_id, :api_key => @api_key)
+    @client = OfficeAutopilot2::Client.new(:api_id => @api_id, :api_key => @api_key)
   end
 
   describe "#new" do
@@ -17,13 +17,13 @@ describe OfficeAutopilot::Client do
 
     it "raises an ArgumentError when :api_id is not provided" do
       expect {
-        OfficeAutopilot::Client.new(:api_key => 'foo')
+        OfficeAutopilot2::Client.new(:api_key => 'foo')
       }.to raise_error(ArgumentError)
     end
 
     it "raises an ArgumentError when :api_key is not provided" do
       expect {
-        OfficeAutopilot::Client.new(:api_id => 'foo')
+        OfficeAutopilot2::Client.new(:api_id => 'foo')
       }.to raise_error(ArgumentError)
     end
   end
@@ -46,7 +46,7 @@ describe OfficeAutopilot::Client do
       it "raises OfficeAutopilot::XmlError" do
         expect {
             @client.handle_response( test_data('invalid_xml_error_response.xml') )
-        }.to raise_error(OfficeAutopilot::XmlError)
+        }.to raise_error(OfficeAutopilot2::XmlError)
       end
     end
   end

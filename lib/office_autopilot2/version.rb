@@ -1,3 +1,3 @@
-module OfficeAutopilot
+module OfficeAutopilot2
   VERSION = "0.0.4"
 end

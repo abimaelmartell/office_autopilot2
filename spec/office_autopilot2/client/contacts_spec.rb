@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe OfficeAutopilot::Client::Contacts do
+describe OfficeAutopilot2::Client::Contacts do
 
   before do
     @contact_endpoint = "#{api_endpoint}/cdata.php"
-    @client = OfficeAutopilot::Client.new(:api_id => 'xxx', :api_key => 'xxx')
+    @client = OfficeAutopilot2::Client.new(:api_id => 'xxx', :api_key => 'xxx')
     @auth_str = "Appid=#{@client.api_id}&Key=#{@client.api_key}"
   end
 

@@ -5,7 +5,7 @@ require File.expand_path('../error', __FILE__)
 require File.expand_path('../request', __FILE__)
 require File.expand_path('../client/contacts', __FILE__)
 
-module OfficeAutopilot
+module OfficeAutopilot2
   class Client
 
     include Contacts
@@ -34,14 +34,14 @@ module OfficeAutopilot
 
     def request(method, path, options)
       options[:body].merge!(auth)
-      handle_response( OfficeAutopilot::Request.send(method, path, options) )
+      handle_response( OfficeAutopilot2::Request.send(method, path, options) )
     end
 
     def handle_response(response)
       xml = Nokogiri::XML(response)
 
       if xml.at_css('result').content =~ /failure/i
-        raise OfficeAutopilot::XmlError if xml.at_css('result error').content =~ /Invalid XML/i
+        raise OfficeAutopilot2::XmlError if xml.at_css('result error').content =~ /Invalid XML/i
       end
 
       response
